@@ -18,6 +18,6 @@ jobs:
       run: |
         pip install mlflow scikit-learn pandas numpy
 
-    - name: Run MLflow Project
+    - name: Run MLflow Project (local env manager, no conda)
       run: |
-        mlflow run MLProject
+        mlflow run MLProject --env-manager=local
