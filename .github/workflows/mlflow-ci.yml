@@ -1,0 +1,23 @@
+name: MLflow CI Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  train-model:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install MLflow and dependencies
+      run: |
+        pip install mlflow scikit-learn pandas numpy
+
+    - name: Run MLflow Project
+      run: |
+        mlflow run MLProject
